@@ -26,7 +26,7 @@ describe('Form component test:', () => {
     setValue: jest.fn(),
     sendBooking: jest.fn()
   }
-  let getByTestId, container, form, firstName, lastName, email, date, submitButton;
+  let getByTestId, container, firstName, lastName, email, date, submitButton;
   const setValue = jest.fn();
   const sendBooking = jest.fn();
   
