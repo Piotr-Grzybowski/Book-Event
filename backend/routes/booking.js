@@ -23,7 +23,7 @@ router.post('/add', [
     newBooking.save()
       .then(() => res.json('Event booked'))
       .catch((err) => {
-        res.json(422, 'Error: ' + err);
+        res.status(422).json('Error: ' + err);
       })
   }
 });

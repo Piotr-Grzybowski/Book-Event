@@ -6,7 +6,7 @@ const initialState = {
     firstName: "",
     lastName: "",
     email: "",
-    date: new Date(),
+    date: "",
     sending: {
       active: false,
       error: false,
@@ -75,9 +75,9 @@ export default function reducer(statePart = initialState, action = {}) {
     }
     case SEND_BOOKING_SUCCESS: {
       return {
-        ...statePart,
+        ...initialState,
         booking: {
-          ...statePart.booking,
+          ...initialState.booking,
           sending: {
             active: false,
             error: false
@@ -96,7 +96,7 @@ export default function reducer(statePart = initialState, action = {}) {
             error: true,
           },
         },
-        message: action.payload
+        message: action.payload,
       }
     }
     case SET_VALUE: {

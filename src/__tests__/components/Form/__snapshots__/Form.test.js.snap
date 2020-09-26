@@ -1,66 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form component test: should match snapshot 1`] = `
-<div>
+<div
+  className="container"
+>
   <form
     data-testid="form"
+    id="booking"
     onSubmit={[Function]}
   >
-    <input
-      data-testid="firstName"
-      onChange={[Function]}
-      required={true}
-      type="text"
-      value="John"
-    />
-    <input
-      data-testid="lastName"
-      onChange={[Function]}
-      required={true}
-      type="text"
-      value="Doe"
-    />
-    <input
-      data-testid="email"
-      onChange={[Function]}
-      required={true}
-      type="email"
-      value="example@example"
-    />
-    <div
-      className="react-datepicker-wrapper"
-    >
+    <h1>
+      Book the event
+    </h1>
+    <fieldset>
+      <input
+        className="firstName"
+        data-testid="firstName"
+        onChange={[Function]}
+        placeholder="First name"
+        required={true}
+        type="text"
+        value="John"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        className="lastName"
+        data-testid="lastName"
+        onChange={[Function]}
+        placeholder="Last name"
+        required={true}
+        type="text"
+        value="Doe"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        className="email"
+        data-testid="email"
+        onChange={[Function]}
+        placeholder="Email address"
+        required={true}
+        type="email"
+        value="example@example"
+      />
+    </fieldset>
+    <fieldset>
       <div
-        className="react-datepicker__input-container"
+        className="datePicker"
       >
-        <input
-          className=""
-          disabled={false}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
-          required={true}
-          type="text"
-          value="05/24/2027"
-        />
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <input
+              className=""
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Date of event"
+              readOnly={false}
+              required={true}
+              type="text"
+              value="05/24/2027"
+            />
+          </div>
+        </div>
       </div>
-    </div>
-    <button
-      data-testid="submit"
-    >
-      Submit
-    </button>
+    </fieldset>
+    <fieldset>
+      <button
+        data-testid="submit"
+        type="submit"
+      >
+        Submit
+      </button>
+    </fieldset>
   </form>
   <div
-    className="message"
-    data-testid="message"
+    className="modal"
+    id="myModal"
   >
-    <p>
-       
-    </p>
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <span
+          className="close"
+        >
+          ×
+        </span>
+        <h2>
+          Success
+        </h2>
+      </div>
+      <div
+        className="modal-body"
+        data-testid="message"
+      >
+        <p>
+           
+        </p>
+      </div>
+      <div
+        className="modal-footer"
+      >
+        <h3>
+          Everything went smoothly!
+        </h3>
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -2,11 +2,39 @@
 
 exports[`Message component should match snapshot 1`] = `
 <div
-  className="message"
-  data-testid="message"
+  className="modal"
+  id="myModal"
 >
-  <p>
-    some example message
-  </p>
+  <div
+    className="modal-content"
+  >
+    <div
+      className="modal-header"
+    >
+      <span
+        className="close"
+      >
+        ×
+      </span>
+      <h2>
+        Success
+      </h2>
+    </div>
+    <div
+      className="modal-body"
+      data-testid="message"
+    >
+      <p>
+        some example message
+      </p>
+    </div>
+    <div
+      className="modal-footer"
+    >
+      <h3>
+        Everything went smoothly!
+      </h3>
+    </div>
+  </div>
 </div>
 `;

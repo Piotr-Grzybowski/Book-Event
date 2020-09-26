@@ -35,7 +35,7 @@ describe('Form component test:', () => {
     firstName = getByTestId('firstName');
     lastName = getByTestId('lastName');
     email = getByTestId('email');
-    date = container.querySelector('.react-datepicker__input-container').firstChild;
+    date = container.querySelector('.datePicker>div>div>input');
     submitButton = getByTestId('submit');
   });
   afterEach(() => {
@@ -64,10 +64,10 @@ describe('Form component test:', () => {
     fireEvent.change(firstName, { target: { value: 'Chuck' }});
     expect(setValue).toHaveBeenCalledWith({firstName: 'Chuck'});
     fireEvent.change(lastName, { target: { value: 'Johnson' }});
-    expect(setValue).toHaveBeenCalledWith({lastName: 'Johnson'});
+    expect(setValue).toHaveBeenCalledWith({ lastName: 'Johnson' });
     fireEvent.change(email, { target: { value: 'Chuck@somewhere' }});
-    expect(setValue).toHaveBeenCalledWith({email: 'Chuck@somewhere'});
-    fireEvent.change(date, { target: { value: new Date(411112121119) }})
+    expect(setValue).toHaveBeenCalledWith({ email: 'Chuck@somewhere' });
+    fireEvent.change(date, { target: { value: new Date(411112121119) }});
     expect(setValue).toHaveBeenCalledTimes(4);
   })
   it('should call sendBooking method on submit with input values', () => {

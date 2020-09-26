@@ -127,6 +127,10 @@ describe('Booking reducer', () => {
         payload: messageSuccess
       })).toEqual({
         booking: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          date: "",
           sending: {
             active: false,
             error: false,
