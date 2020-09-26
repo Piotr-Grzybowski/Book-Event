@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Form from './Form';
-import { setValue, sendBooking, getBooking, getMessage, sendChange } from '../../redux/bookingRedux';
+import { setValue, sendBooking, getBooking, getMessage} from '../../redux/bookingRedux';
 
 const mapStateToProps = (state) => ({
   bookingData: getBooking(state),
@@ -8,9 +8,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  sendBooking: () => dispatch(sendBooking()),
-  setValue: (value) => dispatch(setValue(value)),
-  sendChange: () => dispatch(sendChange())
+  sendBooking: (data) => dispatch(sendBooking(data)),
+  setValue: (value) => dispatch(setValue(value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

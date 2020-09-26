@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component test: should match snapshot 1`] = `
+<div>
+  <form
+    data-testid="form"
+    onSubmit={[Function]}
+  >
+    <input
+      data-testid="firstName"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="John"
+    />
+    <input
+      data-testid="lastName"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="Doe"
+    />
+    <input
+      data-testid="email"
+      onChange={[Function]}
+      required={true}
+      type="email"
+      value="example@example"
+    />
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <input
+          className=""
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
+          required={true}
+          type="text"
+          value="05/24/2027"
+        />
+      </div>
+    </div>
+    <button
+      data-testid="submit"
+    >
+      Submit
+    </button>
+  </form>
+  <div
+    className="message"
+    data-testid="message"
+  >
+    <p>
+       
+    </p>
+  </div>
+</div>
+`;
