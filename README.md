@@ -22,6 +22,7 @@ yarn install:all
 ```shell
 yarn start
 ```
+Command will start both server and client.
 
 <img src="https://i.postimg.cc/xCXtDsq3/Zrzut-ekranu-z-2020-09-27-13-39-38.png" alt="working app">
 
