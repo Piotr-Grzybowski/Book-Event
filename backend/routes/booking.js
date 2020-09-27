@@ -4,7 +4,7 @@ const { body, validationResult } = require('express-validator');
 
 router.post('/add', [
   // validation and sanitization
-  body('firstName', "Please provide correct name!").isString().not().isEmpty().trim().escape(),
+  body('firstName', "Please provide correct name!").isString().not().isEmpty().isLength({min: 3}).trim().escape(),
   body('lastName', "Please provide correct last name!").isString().not().isEmpty().trim().escape(),
   body('email', "Please provide correct email address!").isEmail().not().isEmpty().normalizeEmail(),
   body('date', "Please provide correct date!").isISO8601().not().isEmpty()

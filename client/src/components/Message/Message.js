@@ -1,7 +1,10 @@
 import React from 'react';
 import './Message.css';
 
-function Message({ message, loader }) {
+function Message({ message, loader, errors }) {
+  const errorsList = errors.map((error, index) =>
+    <li key={index}>{error.msg}</li>
+  )
   if (message && loader.active) {
     return(
       <div className="loader-wrapper"><div className="loader"  data-testid="loader"></div></div>
@@ -16,6 +19,7 @@ function Message({ message, loader }) {
           </div>
           <div className="modal-body" data-testid="message">
             <p>{message}</p>
+            {errors.length ? <div><h3>Errors: </h3><ul data-testid="errors">{errorsList}</ul></div> : ''}
           </div>
           <div className="modal-footer" data-testid="modal-footer">
             <h3>{loader.error ? 'Something went wrong!' : 'Everything went smoothly!'}</h3>

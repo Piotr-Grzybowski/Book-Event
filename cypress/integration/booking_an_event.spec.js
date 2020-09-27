@@ -26,6 +26,6 @@ describe('Booking an event', () => {
     // cy.get('[data-testid="lastName"]').should('have.value', '');
     // cy.get('[data-testid="email"]').should('have.value', '');
     // cy.get('[data-test="date"]').type(new Date()).should('have.value', '');
-    cy.get('[data-testid="message"').should('exist').should('have.text', 'Couldn\'t book the event. Please try again later!');
+    cy.get('[data-testid="message"]').should('exist').should('have.text', 'Couldn\'t book the event. Please try again later!Errors: Please provide correct email address!');
 })
 })

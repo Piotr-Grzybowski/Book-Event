@@ -22,7 +22,8 @@ const initialState = {
       error: false,
     },
   },
-  message: false
+  message: false,
+  errors: []
 };
 
 describe('Actions: ', () => {
@@ -66,9 +67,9 @@ describe('Async action thunk creator', () => {
     console.error = jest.fn();
     // Mock store
     store = mockStore(initialState);
+    mock.reset();
   });
   afterEach(() => {
-    mock.restore();
     console.error = original;
   })
 
@@ -87,19 +88,23 @@ describe('Async action thunk creator', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   })
-  it('creates SEND_BOOKING_FAILURE when sending booking hasn\'t succeeded', () => {
+  it('creates SEND_BOOKING_FAILURE when sending booking hasn\'t succeeded', (done) => {
     mock.onPost('http://localhost:5000/api/booking/add').reply(400);
 
     const expectedActions = [
       { type: SEND_BOOKING_REQUEST },
       {
         type: SEND_BOOKING_FAILURE,
-        payload: messageFailure
+        payload: {
+          message: messageFailure,
+          errors: []
+        }
       }
     ]
 
     return store.dispatch(sendBooking(initialState)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      done();
     });
   })
 });
@@ -118,7 +123,8 @@ describe('Booking reducer', () => {
             error: false,
           }
         },
-        message: true
+        message: true,
+        errors: []
       })
   })
   it('should handle SEND_BOOKING_SUCCESS', () => {
@@ -136,13 +142,18 @@ describe('Booking reducer', () => {
             error: false,
           }
         },
-        message: messageSuccess
+        message: messageSuccess,
+        errors: []
       })
   })
-  it('should handle SEND_BOOKING_FAILURE', () => {
+  it('should handle SEND_BOOKING_FAILURE without errors from validator', () => {
       expect(reducer([], {
         type: SEND_BOOKING_FAILURE,
-        payload: messageFailure
+        payload:
+        {
+          message: messageFailure,
+          errors: []
+        }
       })).toEqual({
         booking: {
           sending: {
@@ -150,9 +161,29 @@ describe('Booking reducer', () => {
             error: true,
           },
         },
-        message: messageFailure
+        message: messageFailure,
+        errors: []
     })
   })
+  it('should handle SEND_BOOKING_FAILURE with errors from validator', () => {
+    expect(reducer([], {
+      type: SEND_BOOKING_FAILURE,
+      payload:
+      {
+        message: messageFailure,
+        errors: [{ msg: 'error one' }, { msg: 'error two' }]
+      }
+    })).toEqual({
+      booking: {
+        sending: {
+          active: false,
+          error: true,
+        },
+      },
+      message: messageFailure,
+      errors: [{ msg: 'error one' }, { msg: 'error two' }]
+  })
+})
   it('should handle SET_VALUE', () => {
       expect(reducer(initialState, {
         type: SET_VALUE,
@@ -171,7 +202,8 @@ describe('Booking reducer', () => {
             error: false,
           }
         },
-        message: false
+        message: false,
+        errors: []
       })
   })
 });

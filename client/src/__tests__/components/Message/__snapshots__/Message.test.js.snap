@@ -28,6 +28,7 @@ exports[`Message component should match snapshot 1`] = `
       <p>
         some example message
       </p>
+      
     </div>
     <div
       className="modal-footer"

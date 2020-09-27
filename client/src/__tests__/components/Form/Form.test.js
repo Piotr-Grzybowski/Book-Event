@@ -23,6 +23,7 @@ describe('Form component test:', () => {
       }
     },
     message: ' ',
+    errors: [],
     setValue: jest.fn(),
     sendBooking: jest.fn()
   }

@@ -5,7 +5,7 @@ import "./Form.css";
 import "./react-datepicker.css";
 import PropTypes from 'prop-types';
 
-function Form({ bookingData, setValue, sendBooking, message}) {
+function Form({ bookingData, setValue, sendBooking, message, errors}) {
   // workaround for datePicker inside issue
   const formatDate = (date) => {
     return new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
@@ -30,7 +30,7 @@ function Form({ bookingData, setValue, sendBooking, message}) {
         <button data-testid="submit" type="submit">Submit</button>
         </fieldset>
       </form>
-      <Message message={message} loader={bookingData.sending} />
+      <Message message={message} loader={bookingData.sending} errors={errors}/>
     </div>
   );
 }

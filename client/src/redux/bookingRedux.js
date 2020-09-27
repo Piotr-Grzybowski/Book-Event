@@ -12,12 +12,14 @@ const initialState = {
       error: false,
     },
   },
-  message: false
+  message: false,
+  errors: []
 };
 
 /* selectors */
 export const getBooking = ({ booking }) => booking;
 export const getMessage = ({ message }) => message;
+export const getErrors = ({ errors }) => errors;
 
 /* action name creator */
 const reducerName = 'booking';
@@ -52,8 +54,13 @@ export const sendBooking = (data) => {
         dispatch(sendBookingSuccess(res.data));
       })
       .catch((error) => {
-        dispatch(sendBookingFailure('Couldn\'t book the event. Please try again later!'));
-      });
+          const response = error.response;
+          const data = response.data || [];
+          dispatch(sendBookingFailure({
+            message: 'Couldn\'t book the event. Please try again later!',
+            errors: data.errors || []
+      }))
+    })
   }
 }
 
@@ -70,7 +77,8 @@ export default function reducer(statePart = initialState, action = {}) {
             error: false,
           },
         },
-        message: true
+        message: true,
+        errors: []
       }
     }
     case SEND_BOOKING_SUCCESS: {
@@ -83,7 +91,8 @@ export default function reducer(statePart = initialState, action = {}) {
             error: false
           }
         },
-        message: action.payload
+        message: action.payload,
+        errors: []
       }
     }
     case SEND_BOOKING_FAILURE: {
@@ -96,7 +105,8 @@ export default function reducer(statePart = initialState, action = {}) {
             error: true,
           },
         },
-        message: action.payload,
+        message: action.payload.message,
+        errors: action.payload.errors
       }
     }
     case SET_VALUE: {
@@ -107,7 +117,8 @@ export default function reducer(statePart = initialState, action = {}) {
           ...statePart.booking,
           ...newValue
         },
-        message: false
+        message: false,
+        errors: []
       }
     }
     default:

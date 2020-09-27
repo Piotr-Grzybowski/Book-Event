@@ -75,6 +75,12 @@
   background-color: #c9c620;
   color: white;
 }
+ul {
+  padding: 0 20px;
+}
+li {
+  padding: 0 10px;
+}
 
 /* Add Animation */
 @-webkit-keyframes slideIn {

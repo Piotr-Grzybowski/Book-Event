@@ -56,7 +56,7 @@ describe('Booking API endpoints test:', () => {
       expect(response.error).toBeTruthy();
     })
     it('should return error when booking save method fails', async () => {
-      const response = await request.post('/api/booking/add').send({...bookingData, firstName: 'Ha'});
+      const response = await request.post('/api/booking/add').send({...bookingData, firstName: 'Palalalalalalala'});
       expect(response.status).toBe(422);
       expect(response.body).toEqual(expect.stringContaining('Error: '));
     });
