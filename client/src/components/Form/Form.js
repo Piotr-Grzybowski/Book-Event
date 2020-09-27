@@ -35,6 +35,8 @@ function Form({ bookingData, setValue, sendBooking, message}) {
   );
 }
 
+Form.displayName = 'Form';
+
 Form.propTypes = {
   bookingData: PropTypes.object,
   setValue: PropTypes.func,

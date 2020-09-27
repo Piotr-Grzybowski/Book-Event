@@ -91,6 +91,7 @@ exports[`Form component test: should match snapshot 1`] = `
     >
       <div
         className="modal-header"
+        data-testid="modal-header"
       >
         <span
           className="close"
@@ -111,6 +112,7 @@ exports[`Form component test: should match snapshot 1`] = `
       </div>
       <div
         className="modal-footer"
+        data-testid="modal-footer"
       >
         <h3>
           Everything went smoothly!
