@@ -1,7 +1,7 @@
 # Book the event
 
-> Simple app that let's us book the event. On frontend it is a simple form with inputs and react-datepicker. Data is stored by redux and correct actions are dispatched when values changes or submit button is clicked. On backend informations from inputs are validated with Express validator and saved to MongoDb.
-Front and back end are tested using jest and react-testing-library. MongoDb memory server is used to mock real MongoDb on test purpose. For end to end tests I used Cypress.
+> Simple app that let's us book the event. On frontend it is a simple form with inputs and react-datepicker. Redux is responsible for state management. Correct actions are dispatched when input's values changes or submit button is clicked. On backend informations from redux store are validated with Express validator and saved to MongoDb.
+Frontend and backend are tested with jest, supertest and react-testing-library. MongoDb memory server is mocking database for testing purpose. For end to end tests I've used Cypress.
 
 <img src="https://i.postimg.cc/fW6gZhct/Zrzut-ekranu-z-2020-09-27-13-39-53.png" alt="working app">
 
